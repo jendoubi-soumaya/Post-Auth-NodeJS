@@ -31,15 +31,15 @@
            <br>
            <br> 
            <div class="ui container">
-            <form action="/add" class="ui form" method="post">
+            <form action="/edit/<%- post._id %>" class="ui form" method="post">
                 <div class="ui three fields">
                     <div class="field">
                         <label for="Title" class="ui header green">enter the post title</label>
-                        <input type="text" name="Title" id="Title">
+                        <input type="text" name="Title" value="<%- post.Title %>" id="Title">
                     </div>
                     <div class="field">
                         <label for="Content" class="ui header green">enter the post content</label>
-                        <input type="text" name="Content" id="Content">
+                        <input type="text" name="Content" value="<%- post.Content %>" id="Content">
                     </div>
                 </div>
                 <div class="ui fluid field">
@@ -48,26 +48,6 @@
             </form>
             <br><br>
 
-            <table class="ui green table">
-                <thead>
-                    <th>Post Title</th>
-                    <th>Post Content</th>
-                    <th>Update</th>
-                    <th>Delete</th>
-                </thead>
-                <tbody>
-                <% posts.forEach((post)=>{ %>
-                <tr>
-                    <td><%- post.Title%></td>
-                    <td><%- post.Content%></td>
-                    <td><a class="ui purple button" href="/edit/<%= post._id %>"><i class="edit outline icon"></i></a></td>
-                    <td><a class="ui red button"><i class="minus icon"></i></a></td>
-                </tr>
-                <% }); %>
-                
-                </tbody>
-
-            </table>
            </div>
     
     </div>
