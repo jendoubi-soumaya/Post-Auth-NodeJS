@@ -85,4 +85,25 @@ router.post('/edit/:id', async (req, res, next) => {
 });
 
 
+// Route to delete Item
+router.get('/delete/:id', async (req, res, next) => {
+  try {
+    const result = await post.findByIdAndDelete(req.params.id);
+    if (result) {
+      console.log("Deleted successfully");
+      // Redirect or send a response here after successful deletion
+      res.redirect('/'); // for example, redirect to the home page
+    } else {
+      console.log("No document found with that ID");
+      // Handle the case where no document was found
+      res.status(404).send("Not Found");
+    }
+  } catch (err) {
+    console.log("Something went wrong to delete data");
+    next(err); // Pass errors to Express error handling middleware
+  }
+});
+
+
+
 module.exports= router;

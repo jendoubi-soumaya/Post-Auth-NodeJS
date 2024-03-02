@@ -61,7 +61,7 @@
                     <td><%- post.Title%></td>
                     <td><%- post.Content%></td>
                     <td><a class="ui purple button" href="/edit/<%= post._id %>"><i class="edit outline icon"></i></a></td>
-                    <td><a class="ui red button"><i class="minus icon"></i></a></td>
+                    <td><a class="ui red button" href="/delete/<%= post._id %>"><i class="minus icon"></i></a></td>
                 </tr>
                 <% }); %>
                 
